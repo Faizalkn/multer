@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="/single.css">
+    <title>{{singleid.name}} | Product Details</title>
 </head>
 <body>
-    <img src="{{singleid.imge}}" alt="{{singleid.name}}">
-    <h1>{{singleid.name}}</h1>
-    <p>{{singleid.price}}</p>
+    <main class="product-page">
+        <a class="back-link" href="/display">&larr; Back to products</a>
+        <article class="product-detail">
+            <div class="product-image-wrap">
+                <img class="product-image" src="{{singleid.image}}" alt="{{singleid.name}}">
+            </div>
+            <div class="product-info">
+                <p class="product-eyebrow">Featured product</p>
+                <h1>{{singleid.name}}</h1>
+                <p class="product-price">{{singleid.price}}</p>
+                <div class="product-divider"></div>
+                <p class="product-copy">A carefully selected piece made to bring quality and character to your everyday collection.</p>
+            </div>
+        </article>
+    </main>
 
 </body>
 </html>

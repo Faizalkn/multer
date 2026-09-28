@@ -43,38 +43,56 @@ router.post("/display",user.single("image") ,async(req, res) => {
    // fetch value from db
   // res.render("display", { name: name, price: price, image: image });
 });
-router.post('/singlepage/:id',async(req,res)=>{  
-  const singleid=await usermodel.findById(req.params.id)
-  res.render("singlepage",{singleid})
+router.post('/singlepage/:id', async (req, res) => {
+    const singleid = await usermodel.findById(req.params.id);
 
-})
+    if (!singleid) {
+        return res.sendStatus(404);
+    }
 
-router.get("/update/:id", async (req, res) => {
-  const product = await usermodel.findById(req.params.id);
-  if (!product) return res.sendStatus(404);
-  res.render("update", { product });
+    res.render("singlepage", { singleid });
 });
+ router.post('/delete/:id',async(req,res)=>{
+  try{
+    const deleted = await usermodel.findByIdAndDelete(req.params.id)
+    if(!deleted){
+      return res.status(404).render("404",{message:"product not found"})
 
-router.post("/update/:id", user.single("image"), async (req, res) => {
-  const updates = {
-    name: req.body.name,
-    price: req.body.price,
-  };
-  if (req.file) updates.image = `/uploads/${req.file.filename}`;
+    }
+    res.redirect("/display")
+  
+  }
+  catch(err){
+    console.error(err);
+    res.status(500).send("something went wrong")
+  }
+ })
+// router.get("/update/:id", async (req, res) => {
+//   const product = await usermodel.findById(req.params.id);
+//   if (!product) return res.sendStatus(404);
+//   res.render("update", { product });
+// });
 
-  const product = await usermodel.findByIdAndUpdate(req.params.id, updates, {
-    new: true,
-    runValidators: true,
-  });
-  if (!product) return res.sendStatus(404);
-  res.redirect("/display");
-});
+// router.post("/update/:id", user.single("image"), async (req, res) => {
+//   const updates = {
+//     name: req.body.name,
+//     price: req.body.price,
+//   };
+//   if (req.file) updates.image = `/uploads/${req.file.filename}`;
 
-router.post("/delete/:id", async (req, res) => {
-  const product = await usermodel.findByIdAndDelete(req.params.id);
-  if (!product) return res.sendStatus(404);
-  res.redirect("/display");
-});
+//   const product = await usermodel.findByIdAndUpdate(req.params.id, updates, {
+//     new: true,
+//     runValidators: true,
+//   });
+//   if (!product) return res.sendStatus(404);
+//   res.redirect("/display");
+// });
+
+// router.post("/delete/:id", async (req, res) => {
+//   const product = await usermodel.findByIdAndDelete(req.params.id);
+//   if (!product) return res.sendStatus(404);
+//   res.redirect("/display");
+// });
 
 
 module.exports=router
