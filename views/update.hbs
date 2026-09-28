@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Product</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form class="product-form" action="/update/{{product._id}}" method="POST" enctype="multipart/form-data">
+        <h2>Update Product</h2>
+
+        <div class="field-group">
+          <label for="name">Product Name</label>
+          <input id="name" type="text" name="name" value="{{product.name}}" required />
+        </div>
+
+        <div class="field-group">
+          <label for="price">Price</label>
+          <input id="price" type="number" name="price" value="{{product.price}}" required />
+        </div>
+
+        <div class="field-group">
+          <label for="image">Replace Product Image (optional)</label>
+          <input id="image" type="file" name="image" />
+        </div>
+
+        <button type="submit">Save changes</button>
+        <a href="/display">Cancel</a>
+      </form>
+    </div>
+  </body>
+</html>

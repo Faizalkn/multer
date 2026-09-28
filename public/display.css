@@ -1,0 +1,137 @@
+:root {
+  --bg-start: #fff5ef;
+  --bg-end: #ffe8d6;
+  --card: rgba(255, 255, 255, 0.9);
+  --primary: #ff7b54;
+  --text: #2a1f22;
+  --muted: #6e5358;
+  --line: #ffd8c8;
+  --shadow: rgba(190, 94, 67, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  align-content: start;
+  align-items: stretch;
+  gap: 24px;
+  padding: 32px;
+  background:
+    radial-gradient(circle at top left, rgba(255, 123, 84, 0.25), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(255, 181, 120, 0.24), transparent 30%),
+    linear-gradient(135deg, var(--bg-start), var(--bg-end));
+  color: var(--text);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.product-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 14px;
+  box-shadow: 0 18px 42px var(--shadow);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f2eee9;
+}
+
+.product-card p {
+  margin: 0;
+  padding: 14px 18px;
+}
+
+.product-name {
+  padding: 14px 18px 8px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+
+.product-name::before {
+  content: "Name";
+}
+
+.product-price {
+  color: var(--primary);
+  padding: 0 18px 14px;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.product-price::before {
+  content: "Price";
+}
+
+.product-card p::before {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.product-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: auto;
+  padding: 4px 14px 16px;
+}
+
+.product-actions form {
+  min-width: 0;
+}
+
+.product-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 40px;
+  padding: 10px 5px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.product-button:hover {
+  background: #e9613c;
+}
+
+.product-button-danger {
+  background: #b93d35;
+}
+
+.product-button-danger:hover {
+  background: #982f29;
+}
+
+@media (max-width: 480px) {
+  body {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 20px;
+  }
+}
