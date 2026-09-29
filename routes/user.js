@@ -67,6 +67,24 @@ router.post('/singlepage/:id', async (req, res) => {
     res.status(500).send("something went wrong")
   }
  })
+
+
+
+ router.get('/update/:id',async (req,res)=>{
+      const product = await usermodel.findById(req.params.id);
+  res.render('update',{product})
+
+ })
+
+ router.post('/singleupdate/:id',user.single('image'),async(req,res)=>{
+  const updates={
+    name:req.body.name,
+    price:req.body.price,
+  }
+  if(req.file)  updates.image=`uploads/${req.file.filename}`    
+  await usermodel.findByIdAndUpdate(req.params.id,updates)
+  res.redirect('../display')
+ })
 // router.get("/update/:id", async (req, res) => {
 //   const product = await usermodel.findById(req.params.id);
 //   if (!product) return res.sendStatus(404);

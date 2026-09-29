@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <form class="product-form" action="/update/{{product._id}}" method="POST" enctype="multipart/form-data">
+      <form class="product-form" action="/singleupdate/{{product._id}}" method="POST" enctype="multipart/form-data">
         <h2>Update Product</h2>
 
         <div class="field-group">
@@ -20,7 +20,9 @@
           <label for="price">Price</label>
           <input id="price" type="number" name="price" value="{{product.price}}" required />
         </div>
-
+        <div>
+          <img src="{{product.image}}" alt="'{{product.name}}">
+        </div>
         <div class="field-group">
           <label for="image">Replace Product Image (optional)</label>
           <input id="image" type="file" name="image" />
