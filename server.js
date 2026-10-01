@@ -4,6 +4,7 @@ const userRouter=require("./routes/user")
 const productRouter=require("./routes/product")
 const mongoose = require('mongoose') // mongoose imported 
 
+
 mongoose.connect("mongodb://localhost:27017/sample")
 .then(()=>{
     console.log("mongodb connected")
@@ -16,9 +17,9 @@ mongoose.connect("mongodb://localhost:27017/sample")
 app.use(express.static("public"));
 app.use("/uploads", express.static("uploads"));
 app.set("view engine", "hbs");
+app.use(express.urlencoded({ extended: true }));
 app.use("/",userRouter)
 app.use("/product",productRouter)
-app.use(express.urlencoded({ extended: true }));
 
 // app.get("/", (req, res) => {
 //   res.render("form");
