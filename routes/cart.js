@@ -47,6 +47,10 @@ router.post('/:id', auth, async (req, res) => {
 
     res.redirect('/cart');
 });
-
+//remove product
+router.get('/delete/:id', auth, async (req, res) => {
+    await cartmodel.findByIdAndDelete(req.params.id);
+    return res.redirect('/cart');
+});
 
 module.exports = router; 
