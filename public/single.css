@@ -121,6 +121,40 @@ h1 {
   line-height: 1.65;
 }
 
+.cart-message {
+  margin: 18px 0 0;
+  color: #276749;
+  font-weight: 700;
+}
+
+.cart-form {
+  margin-top: 20px;
+}
+
+.add-cart-button {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  box-shadow: 0 10px 20px rgba(241, 90, 60, 0.22);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.add-cart-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 24px rgba(241, 90, 60, 0.3);
+}
+
+.add-cart-button:active {
+  transform: translateY(0);
+}
+
 @media (max-width: 700px) {
   body {
     padding: 20px;

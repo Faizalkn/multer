@@ -8,7 +8,7 @@
 </head>
 <body>
     <main class="product-page">
-        <a class="back-link" href="/display">&larr; Back to products</a>
+        <a class="back-link" href="/product/display">&larr; Back to products</a>
         <article class="product-detail">
             <div class="product-image-wrap">
                 <img class="product-image" src="{{singleid.image}}" alt="{{singleid.name}}">
@@ -19,6 +19,12 @@
                 <p class="product-price">{{singleid.price}}</p>
                 <div class="product-divider"></div>
                 <p class="product-copy">A carefully selected piece made to bring quality and character to your everyday collection.</p>
+                {{#if cartMessage}}
+                    <p class="cart-message" role="status">{{cartMessage}}</p>
+                {{/if}}
+                <form class="cart-form" action="/cart/{{singleid._id}}" method="post">
+                    <button class="add-cart-button" type="submit">Add to cart</button>
+                </form>
             </div>
         </article>
     </main>

@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <form class="product-form" action="/singleupdate/{{product._id}}" method="POST" enctype="multipart/form-data">
+      <form class="product-form" action="/product/singleupdate/{{product._id}}" method="POST" enctype="multipart/form-data">
         <h2>Update Product</h2>
 
         <div class="field-group">
@@ -29,7 +29,7 @@
         </div>
 
         <button type="submit">Save changes</button>
-        <a href="/display">Cancel</a>
+        <a href="/product/display">Cancel</a>
       </form>
     </div>
   </body>

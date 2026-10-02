@@ -7,6 +7,13 @@
     <title>Product Details</title>
 </head>
 <body>
+    {{#if productAdded}}
+        <script>alert('Product added successfully');</script>
+    {{/if}}
+    <nav class="product-list-actions" aria-label="Product actions">
+        <a class="add-product-button" href="/product">Add product</a>
+        <a class="add-product-button" href="/cart">View cart</a>
+    </nav>
         {{#each data}}
     <main class="product-card">
         <img class="product-image" src="{{image}}" alt="{{name}}">
@@ -14,11 +21,11 @@
         <p class="product-price">{{price}}</p>
 
         <div class="product-actions">
-            <form action="/singlepage/{{_id}}" method="post">
+            <form action="/product/singlepage/{{_id}}" method="post">
                 <button class="product-button" type="submit">View</button>
             </form>
-            <a class="product-button" href="/update/{{_id}}">Update</a>
-            <form action="/delete/{{_id}}" method="post" onsubmit="return confirm('Delete this product?')">
+            <a class="product-button" href="/product/update/{{_id}}">Update</a>
+            <form action="/product/delete/{{_id}}" method="post" onsubmit="return confirm('Delete this product?')">
                 <button class="product-button product-button-danger" type="submit">Delete</button>
             </form>
         </div>

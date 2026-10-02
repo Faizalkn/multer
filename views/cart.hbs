@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/cart.css">
+	<title>Your Cart</title>
+</head>
+<body>
+	<main class="cart-page">
+		<header class="cart-header">
+			<div>
+				<p class="cart-eyebrow">YOUR SELECTION</p>
+				<h1>Your Cart</h1>
+			</div>
+			<a class="continue-link" href="/product/display">Continue shopping</a>
+		</header>
+
+		{{#if cart}}
+			<section class="cart-items" aria-label="Cart items">
+				{{#each cart}}
+					{{#if product}}
+						<article class="cart-item">
+							{{#if product.image}}
+								<img class="cart-image" src="{{product.image}}" alt="{{product.name}}">
+							{{else}}
+								<div class="cart-image cart-image-empty" aria-hidden="true">No image</div>
+							{{/if}}
+							<div class="cart-item-info">
+								<h2>{{product.name}}</h2>
+								<p>Price: {{product.price}}</p>
+								<p>Quantity: {{quantity}}</p>
+							</div>
+						</article>
+					{{/if}}
+				{{/each}}
+			</section>
+		{{else}}
+			<section class="empty-cart">
+				<h2>Your cart is empty</h2>
+				<p>Choose a product to add it here.</p>
+				<a class="shop-button" href="/product/display">Browse products</a>
+			</section>
+		{{/if}}
+	</main>
+</body>
+</html>

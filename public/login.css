@@ -46,6 +46,26 @@ h1 {
   text-align: center;
 }
 
+.success-message {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  border: 1px solid #a8d5b2;
+  border-radius: 8px;
+  background: #edf8ef;
+  color: #276749;
+  font-weight: 600;
+}
+
+.error-message {
+  margin: 0 0 20px;
+  padding: 12px 14px;
+  border: 1px solid #e7a39a;
+  border-radius: 8px;
+  background: #fff0ed;
+  color: #9f3027;
+  font-weight: 600;
+}
+
 form {
   display: flex;
   flex-direction: column;
