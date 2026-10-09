@@ -142,6 +142,24 @@ button:active {
   text-decoration: underline;
 }
 
+.seller-button {
+  display: block;
+  margin-top: 14px;
+  padding: 13px 18px;
+  border: 1px solid var(--primary-dark);
+  border-radius: 10px;
+  color: var(--primary-dark);
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.seller-button:hover {
+  background: var(--primary-dark);
+  color: #fff;
+}
+
 @media (max-width: 480px) {
   body {
     padding: 18px;
